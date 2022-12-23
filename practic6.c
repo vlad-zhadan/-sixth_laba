@@ -100,17 +100,17 @@ float det(int rows, float matrix[rows][rows])
     {
         return matrix[0][0];
     }
-
+    // exclude first row and current column
     for (int i = 0; i < rows; i++)
     {
-        for (int j = 1; j < rows; j++)
+        for (int row = 1; row < rows; row++)
         {
             short shift = 0;
-            for (int k = 0; k < rows; k++)
+            for (int column = 0; column < rows; column++)
             {
-                if (k != i)
+                if (column != i)
                 {
-                    temp[j - 1][k - shift] = matrix[j][k];
+                    temp[row - 1][column - shift] = matrix[row][column];
                 }
                 else
                 {
